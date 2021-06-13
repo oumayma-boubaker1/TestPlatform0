@@ -1,0 +1,63 @@
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <h4 class="card-title" style="margin-top: 15px;">Quiz List</h4>
+              <h6 class="card-subtitle mb-2 text-muted">All category of quiz assigned to you.  </h6>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group" style="text-align: left !important;">
+                <input type='text' class="form-control" style="margin-top: 30px;" placeholder='Search for quiz...'
+                  (keyup)='updateFilter($event)' />
+              </div>
+            </div>
+          </div>
+            <div class="table-responsive" style="overflow: hidden !important;">
+              <ngx-datatable #table class='table material fullscreen' style="box-shadow: none;" [columns]="columns"
+                [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [rows]='rows'>
+                
+                <ngx-datatable-column prop='title' name="Title">
+                  <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                    <span class="text-primary" style="font-weight: bold; font-size: 10px; cursor: pointer;" (click)="sort()">{{column.name}}</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column prop='subject' name="Subject">
+                  <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                    <span class="text-primary" style="font-weight: bold; font-size: 10px; cursor: pointer;" (click)="sort()">{{column.name}}</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column prop="totalMarks" name="Total Marks">
+                  <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                    <span class="text-primary" style="font-weight: bold; font-size: 10px; cursor: pointer;" (click)="sort()">{{column.name}}</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                 <ngx-datatable-column prop="time" name='Time'>
+                  <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                    <span class="text-primary" style="font-weight: bold; font-size: 10px; cursor: pointer;" (click)="sort()">{{column.name}}</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Actions">
+                  <ng-template let-column="column" ngx-datatable-header-template>
+                    <span class="text-primary" style="font-weight: bold; font-size: 10px;">{{column.name}}</span>
+                  </ng-template>
+                  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                    <button (click)="giveQuiz(row)" class="btn btn-primary btn-round btn-icon btn-icon-mini btn-neutral"
+                      data-original-title="Edit Task" rel="tooltip" title="Edit Task" type="button">
+                      Start Quiz
+                    </button>
+                    <!-- <button (click)="giveQuiz(row)" class="btn btn-primary btn-round btn-icon btn-icon-mini btn-neutral"
+                      data-original-title="Edit Task" rel="tooltip" title="Edit Task" type="button">
+                      Check Result
+                    </button> -->
+                  </ng-template>
+                </ngx-datatable-column>
+              </ngx-datatable>
+            </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

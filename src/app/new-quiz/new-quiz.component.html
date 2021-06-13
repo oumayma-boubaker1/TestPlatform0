@@ -1,0 +1,96 @@
+<div class="container">
+
+  <div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="">
+              <div class="">
+
+                <div class="text-left">
+                  <form class="form-signin" [formGroup]="form">
+                    <h1 class="h3 mb-3 font-weight-normal text-center"> Create Quiz</h1>
+                    <br>
+                    <div class='form-group'>
+                      <label for="inputEmail" class="text-muted">Title of the quiz</label>
+                      <input type="text" id="inputEmail" class="form-control" placeholder="Title of the quiz"
+                        formControlName="title" required autofocus>
+                      <label for="Subject" class="text-muted">Subject</label>
+                      <input type="text" id="Subject" class="form-control" placeholder="Subject"
+                        formControlName="subject" required>
+                      <label for="time" class="text-muted">Time</label>
+                      <input type="number" id="time" class="form-control" placeholder="Time" formControlName="time"
+                        required>
+                      <label for="TotalMarks" class="text-muted">Total Marks</label>
+                      <input type="number" id="TotalMarks" class="form-control" placeholder="Total Marks"
+                        formControlName="totalMarks" required>
+                      <br>
+                      <div formArrayName='questions'>
+                        <div [formGroupName]='i' *ngFor="let q of form['controls']['questions']['controls']; let i = index">
+                          <h4 class='text-center'>Question {{i+1}}</h4>
+                          <br>
+                          <label for="que" class="text-muted">Question</label>
+                          <input type="text" id="que" class="form-control" placeholder="Question" formControlName="que"
+                            required>
+                            <label for="marks" class="text-muted">Marks</label>
+                          <input type="number" id="marks" class="form-control" placeholder="mark"
+                            formControlName="mark" required>
+                          <label for="option" class="text-muted">Option 1</label>
+                          <input type="text" id="option" class="form-control" placeholder="Option1"
+                            formControlName="option1" required>
+
+                          <label for="option" class="text-muted">Option 2</label>
+                          <input type="text" id="option" class="form-control" placeholder="Option2"
+                            formControlName="option2" required>
+
+                          <label for="option" class="text-muted">Option 3</label>
+                          <input type="text" id="option" class="form-control" placeholder="Option3"
+                            formControlName="option3" required>
+
+                          <label for="option" class="text-muted">Option 4</label>
+                          <input type="text" id="option" class="form-control" placeholder="Option4"
+                            formControlName="option4" required>
+                            <label for="option" class='text-muted' >Correct Option</label>
+                          <select class="form-control" formControlName="correctOption" name="" id=""  placeholder="Correct Option">
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                            <option value="option4">Option 4</option>
+                          </select>
+                          <br>
+                          <div class="row text-center ">
+                            <div class="col-md-6">
+                                <button class="btn btn-md btn-success" type="submit" (click)="addQuestion()"> Add Question </button>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-md btn-danger" type="submit" (click)="removeQuestion(i)"> Remove Question </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class='row text-center'>
+                      <div class="col-md-6">
+                        <button class="btn btn-lg btn-success btn-block" type="submit" [disabled]="form.invalid" (click)="save()">Create
+                          Quiz</button>
+                      </div>
+                      <div class="col-md-6">
+                        <button class="btn btn-lg btn-danger btn-block" type="submit" (click)="cancel()">Cancel</button>
+                      </div>
+                    </div>
+                    <br>
+
+                  </form>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
