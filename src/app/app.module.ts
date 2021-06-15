@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+// import { LoginnComponent } from './auth/loginn/loginn.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -16,6 +17,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AuthService } from './service/auth.service';
 import { NewQuizComponent } from './new-quiz/new-quiz.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+// import { SigninComponent } from './auth/signin/signin.component';
 
 export function tokenGetter() {
   return sessionStorage.getItem('access_token');
@@ -24,12 +26,14 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
+    // LoginnComponent,
     LoginComponent,
     SignupComponent,
     HomeComponent,
     DashboardComponent,
     NavbarComponent,
     NewQuizComponent
+    // SigninComponent
   ],
   imports: [
     BrowserModule,
