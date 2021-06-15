@@ -12,7 +12,7 @@ const Quiz = require('../models/quiz');
 router.post('/register', (req, res) => {
 
     let newUser = new User({
-
+    
         email: req.body.email,
         password: req.body.password,
         role: req.body.type
